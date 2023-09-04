@@ -35,6 +35,7 @@ const LinearRegression = () => {
   return (
     <>
       <div
+        className="analysis-main"
         style={{
           display: "block",
           justifyContent: "center",
@@ -53,25 +54,32 @@ const LinearRegression = () => {
           Simple Linear Regression
         </h1> */}
         <div className="variables">
-          <p>
-            Select Independent Variable :
-            <select onClick={handleSelectedValue}>
+          <p className="analysis">
+            Independent Variable
+            <select className="data-variable" onClick={handleSelectedValue}>
               {columns.map((x) => {
                 return <option value={x}>{x}</option>;
               })}
             </select>
           </p>
-          <p>
-            Select Dependent Variable :
-            <select onClick={handleSelectedValue1}>
+          <p className="analysis">
+            Dependent Variable
+            <select className="data-variable" onClick={handleSelectedValue1}>
               {columns.map((x) => {
                 return <option value={x}>{x}</option>;
               })}
             </select>
           </p>
-          <input type="number" onChange={handlePredict} />
-          <button onClick={handlePrediction} className="HeaderBtn">
-            Predictive Analysis
+          <p className="analysis">
+            Prediction Parameter
+            <input
+              type="number"
+              onChange={handlePredict}
+              className="input-variable"
+            />
+          </p>
+          <button onClick={handlePrediction} className="analysisBtn">
+            Predict
           </button>
 
           {rege}
@@ -89,8 +97,9 @@ const LinearRegression = () => {
             xaxis: { title: { text: cop } },
             yaxis: { title: { text: cop1 } },
             width: 1040,
-            height: 440,
+            height: 400,
             fontSize: 2,
+            borderRadius: "5px",
           }}
         />
       </div>

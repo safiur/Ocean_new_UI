@@ -18,6 +18,11 @@ import { GlobalContext } from "../../GlobalProvider";
 import Menu from "../../Menu";
 import AlanTalk from "./AlanTalk";
 import "../../App.css";
+import Sheet from "../../images/1.png";
+import Data from "../../images/2.png";
+import Dash from "../../images/3.png";
+import sty from "../../images/4.png";
+import analytics from "../../images/5.png";
 const Footer = () => {
   // const { x, y, showMenu } = useRightClickMenu();
   const {
@@ -34,6 +39,7 @@ const Footer = () => {
     setDisableComponent,
   } = useContext(GlobalContext);
   const handleAddSheet = () => {
+    console.log("handleAddSheet");
     const newSheet = { name: `sheet${sheets.length}`, workbooks: [], rows: [] };
     setSheets((prev) => [...prev, newSheet]);
   };
@@ -48,6 +54,7 @@ const Footer = () => {
   const handleAddStory = (index) => {
     const newStory = {
       name: `story${storys.length}`,
+      storysPlot: [],
       buttonContain: [],
     };
     setStorys((prev) => [...prev, newStory]);
@@ -80,7 +87,6 @@ const Footer = () => {
       document.getElementById("disableFooterAnalytics").style.opacity = 0.1;
     }
   }); //
-  console.log(storys);
 
   return (
     <>
@@ -88,8 +94,10 @@ const Footer = () => {
       <AlanTalk />
       <div className="footer">
         <button className="footer-button">
-          <FontAwesomeIcon icon={faListCheck} className="icon" />
-          <Link to="/Datasource">Data Source</Link>
+          <img src={Sheet} className="icon-footer" />
+          <Link to="/Datasource" className="icon-names">
+            Data Source
+          </Link>
         </button>
 
         {sheets.map((sheet, idx) => (
@@ -99,7 +107,7 @@ const Footer = () => {
               onContextMenu={updateSheetname}
               contextmenu="mymenu"
             >
-              <FontAwesomeIcon icon={faTable} className="icon" />
+              <img src={Data} className="icon-footer" />
               {sheet.name}
             </Link>
           </button>
@@ -107,14 +115,19 @@ const Footer = () => {
         <button onClick={handleAddSheet}>
           <FaPlusCircle className="button-plus" id="disableFooterStory" />
         </button>
-        {dashboards.map((dashboard, idx) => (
-          <button key={idx} className="footer-button">
-            <Link to={`/dashboard/${dashboard.name}`}>
-              <FaTh className="icon" />
-              {dashboard.name}
-            </Link>
-          </button>
-        ))}
+        {dashboards.map(
+          (dashboard, idx) => (
+            console.log(dashboards),
+            (
+              <button key={idx} className="footer-button">
+                <Link to={`/dashboard/${dashboard.name}`}>
+                  <img src={Dash} className="icon-footer" />
+                  {dashboard.name}
+                </Link>
+              </button>
+            )
+          )
+        )}
         <button onClick={handleAddDashboard} disabled={disableComponenet}>
           <FaPlusCircle className="button-plus" id="disableFooterStory" />
         </button>
@@ -125,7 +138,7 @@ const Footer = () => {
             className="footer-button"
           >
             <Link to={`/story/${story.name}`} id="disableFooterStory">
-              <FontAwesomeIcon icon={faBookOpen} className="icon" />
+              <img src={sty} className="icon-footer" />
               {story.name}
             </Link>
           </button>
@@ -135,7 +148,7 @@ const Footer = () => {
         </button>
         <button disabled={disableComponenet} className="footer-button">
           <Link to={"/AnalyticsMain"} id="disableFooterAnalytics">
-            <FontAwesomeIcon icon={faChartLine} className="icon" />
+            <img src={analytics} className="icon-footer" />
             Analytics
           </Link>
         </button>

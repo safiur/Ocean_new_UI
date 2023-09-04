@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import logo from "../../images/logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTable,
-  faBookOpen,
-  faChartLine,
-  faListCheck,
-} from "@fortawesome/free-solid-svg-icons";
+import Home from "../../images/Home.png";
+import Sheet from "../../images/Spreadsheet.png";
+import Data from "../../images/datasource.png";
+import Dash from "../../images/Dashboard.png";
+import sty from "../../images/story.png";
+import analytics from "../../images/analytics.png";
+
 import {
   LuLayoutDashboard,
   // GoHome,
@@ -19,44 +19,51 @@ import {
   TbSettings,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import Datasource from "../DataSource/Datasource";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
     {
-      path: "/",
+      path: "/home",
       name: "Home",
-      icon: <FaHome className={"sidebar-icon"} />,
+      icon: <img src={Home} className={"sidebar-icon"} />,
+      // <FaHome className={"sidebar-icon"}/>
     },
     {
-      path: "/sheet/sheet",
+      path: "/Sheet/Sheet",
       name: "Sheet",
-      icon: <FontAwesomeIcon icon={faTable} className={"sidebar-icon"} />,
+      icon: <img src={Sheet} className={"sidebar-icon"} />,
+      // icon:<FontAwesomeIcon icon={faTable} className={"sidebar-icon"} />
     },
 
     {
-      path: "/datasource",
+      path: "/Datasource",
       name: "Data Source",
-      icon: <FontAwesomeIcon icon={faListCheck} className={"sidebar-icon"} />,
+      icon: <img src={Data} className={"sidebar-icon"} />,
+      // icon:<FontAwesomeIcon icon={faListCheck} className={"sidebar-icon"}/>
     },
 
     {
       path: "/dashboard/dashboard",
       name: "Dashboard",
-      icon: <FaTh className={"sidebar-icon"} />,
+      icon: <img src={Dash} className={"sidebar-icon"} />,
+      // icon:<FaTh  className={"sidebar-icon"}/>
     },
 
     {
       path: "/story/story",
       name: "Story",
-      icon: <FontAwesomeIcon icon={faBookOpen} className={"sidebar-icon"} />,
+      icon: <img src={sty} className={"sidebar-icon"} />,
+      // icon:<FontAwesomeIcon icon={faBookOpen} className={"sidebar-icon"} />
     },
 
     {
       path: "/AnalyticsMain",
       name: "Analytics",
-      icon: <FontAwesomeIcon icon={faChartLine} className={"sidebar-icon"} />,
+      icon: <img src={analytics} className={"sidebar-icon"} />,
+      // icon:<FontAwesomeIcon icon={faChartLine} className={"sidebar-icon"}/>
     },
   ];
   return (
@@ -74,10 +81,7 @@ const Sidebar = ({ children }) => {
             className="logo"
             alt="Aceslogo"
           />
-          <div
-            style={{ marginLeft: isOpen ? "50px" : "0px", cursor: "pointer" }}
-            className="bars"
-          >
+          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
             <FaBars onClick={toggle} />
           </div>
         </div>

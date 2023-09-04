@@ -33,15 +33,15 @@ const MLModel = () => {
   return (
     <>
       <div className="DataDisplay">
-      <div className="display-btn">
-        <button
-          className="display_btn"
-          onClick={(e) => setDisplay(e.target.value)}
-          value="describe_data"
-        >
-          Predictive Analysis
-        </button>
-        <button
+        <div className="display-btn">
+          <button
+            className="display_btn"
+            onClick={(e) => setDisplay(e.target.value)}
+            value="describe_data"
+          >
+            Regression
+          </button>
+          {/*<button
           className="display_btn"
           value="Multi_regression"
           onClick={(e) => setDisplay(e.target.value)}
@@ -54,14 +54,14 @@ const MLModel = () => {
           onClick={(e) => setDisplay(e.target.value)}
         >
           Algorithm
-        </button>
-        <button
-          className="display_btn"
-          value="ml_form"
-          onClick={(e) => setDisplay(e.target.value)}
-        >
-          ML Form
-        </button>
+  </button>*/}
+          <button
+            className="display_btn"
+            value="ml_form"
+            onClick={(e) => setDisplay(e.target.value)}
+          >
+            Classification
+          </button>
         </div>
         {display === "describe_data" ? (
           <LinearRegression />

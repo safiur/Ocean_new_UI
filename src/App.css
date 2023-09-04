@@ -355,6 +355,12 @@ button {
 .icon {
   margin-right: 9px;
 }
+.icon-footer {
+  margin-right: 9px;
+  width: 25px;
+  height: 25px;
+  margin-bottom: -6px;
+}
 .Dashboard {
   display: flex;
   margin-left: 53px;
@@ -526,7 +532,7 @@ tr {
   margin: 5px;
   border-radius: 8px;
   padding: 8px;
-  width: 110px;
+  width: auto;
   height: 38px;
 }
 .granularity-color p {
@@ -845,6 +851,7 @@ button.all-component-btn {
   justify-content: center;
   /* border-right: 2px solid black; */
   border-bottom: 2px solid black;
+
   align-items: center;
 }
 .analyticsTR0 {
@@ -854,10 +861,49 @@ button.all-component-btn {
 }
 .variables {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  background-color: #f0f0f0;
+}
+.analysis {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  font-size: 14px;
+}
+.data-variable {
+  width: 180px;
+  height: 30px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+}
+
+.input-variable {
+  width: 170px;
+  height: 30px;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.analysis-main {
+  border: 1px solid #000;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.analysisBtn {
+  height: 40px;
+  width: 60px;
+  background-color: #213966;
+  color: #fff;
+  margin-left: 50px;
+  margin-bottom: -10px;
 }
 .loginForm {
   display: flex;
@@ -966,7 +1012,11 @@ button.ML_Form_Btn {
   background-color: #5d6d7e;
   color: #d9e1ea;
 }
-
+.button-plus {
+  width: 20px;
+  height: 20px;
+  color: #213966;
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -1340,8 +1390,31 @@ select.selectGraph {
   margin: 30px;
   padding: 10px;
 }
-@media screen and (min-width: 1280px) {
-  .header {
+
+@media screen and (min-width: 1000px) and (max-width: 1280px) {
+  .storyDisplay {
+    margin-left: 10px;
+  }
+  .StoryContainerPlot {
+    margin-left: 0px;
+  }
+  .dataSourcesheets {
+    margin-right: 5px;
+    width: 18%;
+  }
+  .dataSourcesheets button {
+    width: 118px;
+  }
+  .sidebar {
+    height: 97vh;
+  }
+  .storyPage {
+    height: 566px;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 3440px) {
+  .header-main {
     width: 100%;
     height: 90%;
   }
@@ -1354,13 +1427,5 @@ select.selectGraph {
   }
   .Analytics {
     height: 87vh;
-  }
-}
-@media screen and (min-width: 3440px) {
-  .header {
-    width: 100%;
-  }
-  .sidebar {
-    height: 92.5vh;
   }
 }

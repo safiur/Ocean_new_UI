@@ -4,7 +4,7 @@ import Header from "../components/Headers/Header";
 import DataDisplay from "./DataDisplay/DataDisplay";
 import MLModel from "./ML/MLModel";
 import Sidebar from "../components/SideBar/Sidebar";
-
+import Describe from "./DataDisplay/Describe";
 const AnalyticsMain = () => {
   const [selectanalytic, setselectanalytic] = useState();
   function handleDataDisplay(e) {
@@ -13,6 +13,7 @@ const AnalyticsMain = () => {
   function handleMLModel(e) {
     setselectanalytic(e.target.value);
   }
+  // const [display, setDisplay] = useState();
   return (
     <>
       <Header />
@@ -21,23 +22,24 @@ const AnalyticsMain = () => {
         <div className="typesOfAnalytics">
           <p>Analytics</p>
           <hr></hr>
+
           <button
             className="Analytics_btn"
             onClick={handleDataDisplay}
-            value="Data"
+            value="describe_data"
           >
-            Data
+            Describe Data
           </button>
           <br></br>
           <button className="Analytics_btn" onClick={handleMLModel} value="ML">
             ML Model
           </button>
           <br></br>
-          <button className="Analytics_btn">Insights</button>
-          <button className="Analytics_btn">Deploy Model</button>
+          {/* <button className="Analytics_btn">Insights</button>
+  <button className="Analytics_btn">Deploy Model</button>*/}
         </div>
-        {selectanalytic === "Data" ? (
-          <DataDisplay />
+        {selectanalytic === "describe_data" ? (
+          <Describe />
         ) : selectanalytic === "ML" ? (
           <MLModel />
         ) : (

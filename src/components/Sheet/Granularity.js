@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import "../../App.css";
 import { GlobalContext } from "../../GlobalProvider";
+import RGB from "../../images/rgb.png";
 const Granularity = (props) => {
   const [color, setColor] = useState();
   const { selectedSheet } = useContext(GlobalContext);
@@ -15,7 +16,11 @@ const Granularity = (props) => {
           onDragOver={(e) => e.preventDefault()}
           id="groupby"
         >
-          GroupBy
+          <img
+            src={RGB}
+            alt="RGB"
+            style={{ display: "block", width: "30px" }}
+          ></img>
           <p
             droppable
             onDrop={props.drop}
@@ -36,7 +41,7 @@ const Granularity = (props) => {
             style={{
               display: "block",
               width: "25px",
-              marginLeft: "50px",
+              // marginLeft: "50px",
               borderRadius: "20px",
               alignContent: "center",
               justifyContent: "center",
