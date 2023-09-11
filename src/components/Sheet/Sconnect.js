@@ -28,6 +28,7 @@ const Sconnect = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const server = {
+      dbType: 'mysql', // or 'postgres' based on user's choice
       name: serverDetails.name,
       portNumber: serverDetails.portNumber,
       user: serverDetails.user,
@@ -36,11 +37,12 @@ const Sconnect = () => {
     };
     axios
       .post(
-        // "http://localhost:5001/api/users/schema",
-        "https://ocean-user-serverbackend.onrender.com/api/users/schema",
+        "http://localhost:5001/api/users/schema",
+        // "https://ocean-user-serverbackend.onrender.com/api/users/schema",
         server
       )
       .then((res) => {
+        console.log(res.data);
         const t = res.data;
         const col = Object.keys(t);
         const yo = [];
@@ -73,6 +75,7 @@ const Sconnect = () => {
       {/* <button style={{ cursor: "pointer" }} onClick={openModal}>
         Connect
       </button> */}
+      
 
       <Modal
         isOpen={modalIsOpens}
@@ -85,6 +88,14 @@ const Sconnect = () => {
           <button className="modalButton">X</button>
         </div>
         <form className="LoginForm" onSubmit={handleSubmit}>
+        <select 
+        value={serverDetails.dbType} 
+        onChange={(e) => setServerDetails({...serverDetails, dbType: e.target.value})}
+      >
+        <option value="mysql">MySQL</option>
+        <option value="postgres">PostgreSQL</option>
+      </select>
+        
           <input
             className="formInput"
             onChange={handleChange}

@@ -111,8 +111,8 @@ const Datasource = () => {
     setdatabaseName(e.target.value);
     axios
       .post(
-        // "http://localhost:5001/api/users/database",
-        "https://ocean-user-serverbackend.onrender.com/api/users/database",
+        "http://localhost:5001/api/users/database",
+        //"https://ocean-user-serverbackend.onrender.com/api/users/database",
         databaseName
       )
       .then((res) => {
@@ -138,8 +138,8 @@ const Datasource = () => {
     };
     axios
       .post(
-        // "http://localhost:5001/api/users/databaseTable",
-        "https://ocean-user-serverbackend.onrender.com/api/users/databaseTable",
+        "http://localhost:5001/api/users/databaseTable",
+        // "https://ocean-user-serverbackend.onrender.com/api/users/databaseTable",
         dbandTable
       )
       .then((res) => {
