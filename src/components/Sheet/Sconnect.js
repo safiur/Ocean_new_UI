@@ -28,7 +28,7 @@ const Sconnect = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const server = {
-      dbType: 'mysql', // or 'postgres' based on user's choice
+      dbType: 'postgres', // or 'postgres' based on user's choice
       name: serverDetails.name,
       portNumber: serverDetails.portNumber,
       user: serverDetails.user,
@@ -42,7 +42,7 @@ const Sconnect = () => {
         server
       )
       .then((res) => {
-        console.log(res.data);
+        
         const t = res.data;
         const col = Object.keys(t);
         const yo = [];

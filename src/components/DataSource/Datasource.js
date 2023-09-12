@@ -116,6 +116,7 @@ const Datasource = () => {
         databaseName
       )
       .then((res) => {
+        console.log(res.data);
         const t = res.data;
         const col = Object.keys(t);
         const yo = [];
